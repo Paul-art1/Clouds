@@ -1,0 +1,92 @@
+<div class="text-center">
+  <div class="my-5">
+    <h1>
+        Live data by country : {{name}}
+    </h1>
+    <img style="width:60%; height: 60%;"
+        src="https://firebasestorage.googleapis.com/v0/b/projectcovid-21fb7.appspot.com/o/country.jpg?alt=media&token=a5713512-0bf3-4f26-a1be-db3aa6217f8c"
+        alt="Country image" />
+  </div>
+</div> 
+
+<div class="text-center">
+  <h5 style="background-color: #fffce9; padding: 1%; margin-left: 8%; margin-right: 8%; color: #068104;">
+    <span style="color: #f44870; cursor: pointer; -moz-user-select:none; -webkit-user-select:none;" (click)="backToHomepage()">Worldwide</span> &gt; {{name}}
+  </h5>
+</div>
+
+<div class = "my-5">
+  <h3 class="under_T">The real-time data</h3>
+</div>
+
+<div class="text-center">
+  <div style="margin: 5%;">
+      <h4 class="under_1" style="border-color:white; margin-left: 2%; margin-bottom: 2%">Corona Virus Summary
+        in {{name}}</h4>
+      <table class="table text-left table-bordered">
+        <tbody>
+          <tr style="background-color: #cacaca">
+            <td style="border-color:rgb(255, 197, 197);">Total Cases</td>
+            <td style="border-color:rgb(255, 197, 197);">{{globaldata$.TotalConfirmed | json}}</td>
+          </tr>
+          <tr style="background-color: #cacaca">
+            <td style="border-color:rgb(255, 223, 175);">New Cases</td>
+            <td style="border-color:rgb(255, 223, 175);">{{globaldata$.NewConfirmed | json}}</td>
+          </tr>
+          <tr style="background-color: #cacaca">
+            <td style="border-color:rgb(255, 250, 201);">Active Cases</td>
+            <td style="border-color:rgb(255, 250, 201);">{{activeCases}}</td>
+          </tr>
+          <tr style="background-color: #e9e8e8">
+            <td style="border-color:rgb(245, 255, 200);">Total Recovered</td>
+            <td style="border-color:rgb(245, 255, 200);">{{globaldata$.TotalRecovered | json}}</td>
+          </tr>
+          <tr style="background-color: #e9e8e8">
+            <td style="border-color:rgb(207, 250, 203);">New Recovered</td>
+            <td style="border-color:rgb(207, 250, 203);">{{globaldata$.NewRecovered | json}}</td>
+          </tr>
+          <tr style="background-color: #e9e8e8">
+            <td style="border-color:rgb(200, 236, 253);">Recovery Rate</td>
+            <td style="border-color:rgb(200, 236, 253);">{{recoveryRate}}</td>
+          </tr>
+          <tr style="background-color: #858484">
+            <td style="border-color:rgb(206, 218, 253);">Total Deaths</td>
+            <td style="border-color:rgb(206, 218, 253);">{{globaldata$.TotalDeaths | json}}</td>
+          </tr>
+          <tr style="background-color: #858484">
+            <td style="border-color:rgb(205, 202, 253);">New Deaths</td>
+            <td style="border-color:rgb(205, 202, 253);">{{globaldata$.NewDeaths | json}}</td>
+          </tr>
+          <tr style="background-color: #858484">
+            <td style="border-color:rgb(228, 205, 250);">Mortality Rate</td>
+            <td style="border-color:rgb(228, 205, 250);">{{mortalityRate}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 class="under_2" style="border-color:white; margin-top: 10%;margin-left: 2%; margin-bottom: 2%">Cases Distribution in {{name}}</h4>
+      <div>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <h4 class="under_3" style="border-color:white; margin-top: 10%;margin-left: 2%; margin-bottom: 2%">Daily Cases in {{name}}</h4>
+      <div>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <h4 class="under_4" style="border-color:white; margin-top: 10%;margin-left: 2%; margin-bottom: 2%">Total Cases in {{name}}</h4>
+      <div>
+        <canvas id="lineChart"></canvas>
+      </div>
+  </div>
+
+  <p style="background-color: #fffce9; padding: 1%; margin-left: 8%; margin-right: 8%;">Data source : <a
+      href="https://covid19api.com" target="_blank">
+      COVID-19 API / John Hopkins CSSE</a>
+      and <a
+      href="https://corona.lmao.ninja/v2/historical/all" target="_blank">
+      LMAO Ninja API</a>
+    </p>
+</div>
+
+
